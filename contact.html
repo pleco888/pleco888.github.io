@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Contact | motoo.ml</title>
+<meta name="description" content="コンタクトフォーム。ご連絡はこちらまたはtwitterのDMからお願いします。">
+
+<link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+<link href="asset/css/style.css" rel="stylesheet" type="text/css">
+
+
+</head>
+
+<body>
+
+    <div class="cursor"></div>
+    <div class="follower"></div>
+    
+    <header class="Header">
+        <div class="Header-Inner">
+            <a href="/portfolio"><h1>motoo.ml</h1></a>
+
+            <div class="Nav">
+
+                    <input type="checkbox" id="Toggle" class="Nav-Checkbox">
+                    <label for="Toggle" class="Nav-Label"></label>
+
+                <nav>
+                    <ul class="Nav-Items">
+                        <li class="Nav-Item"><a href="/#About">About</a></li>
+                        <li class="Nav-Item"><a href="/#Work">Work</a></li>
+                        <li class="Nav-Item"><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+                
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="Contact">
+            <div class="Contact-Inner">
+                <h2 class="Heading">Contact</h2>
+                <p>ご相談お待ちしております。誠心誠意対応をさせていただきます。予算をお聞きしてからの見積もりも可能ですので、ご相談お待ちしております。</p>
+                <form id="googleform" action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSdqrECXHOEJMxXHcvoFBRQSkd7Z13agnWXmOmCblFlTjgZX1w/formResponse">
+                    <div class="Contact-Content">
+                        <label for="name">お名前</label>
+                        <input id="name" name="entry.1616382265" type="text" required/>
+                    </div>
+                    <div class="Contact-Content">
+                        <label for="mail-address">メールアドレス</label>
+                        <input id="mail-address" name="entry.1057722765" type="text" required/>
+                    </div>
+                    <div class="Radio-Content">
+                        <p>ご依頼内容</p>
+                        <div>
+                            <input id="new-product" name="entry.409917634_sentinel" type="radio" value="新規制作のご依頼" required/>
+                            <label for="new-product">新規制作のご依頼</label>
+                        </div>
+                        <div>
+                            <input id="repair-product" name="entry.409917634_sentinel" type="radio" value="改修 / 運用 / 保守のご依頼" required/><!-- entry.409917634_sentinel -->
+                            <label for="repair-product">改修 / 運用 / 保守のご依頼</label>
+                        </div>
+                        <div class="Contact-Content">
+                            <input id="other-product" name="entry.409917634_sentinel" type="radio" value="その他" required/>
+                            <label for="other-product">その他</label>
+                        </div>
+                    </div>
+                    <div>
+                        <label for="message">メッセージ</label>
+                        <textarea id="message" name="entry.1557664692" placeholder="対応範囲、ご予算、ご希望など" required/></textarea>
+                    </div>
+                    <div class="Contact-Content">
+                        <button type="submit" class="Contact-Submit">送信</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="Footer">
+        <div class="Social">
+            <a href="https://twitter.com/pleco888" target="_blunk"><i class="fab fa-twitter fa-2x twitter"></i></a>
+        </div>
+        <p class="FooterCopy">&copy; 2020 motoo.ml</p>
+    </footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.1/TweenMax.min.js"></script>
+    <script src="asset/js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</body>

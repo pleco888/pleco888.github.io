@@ -1,0 +1,337 @@
+
+/* ---------------------------------------------- */
+/* max-width 956px
+/* ---------------------------------------------- */
+@media (max-width: 956px) {
+/* ----------------------- */
+/* base
+/* ----------------------- */
+
+.Heading{
+    text-align: left;
+}
+
+/* ----------------------- */
+/* header
+/* ----------------------- */
+
+
+
+/* ----------------------- */
+/* main
+/* ----------------------- */
+/* ----------------------- */
+/* Profile
+/* ----------------------- */
+/* ----------------------- */
+/* About
+/* ----------------------- */
+/* ----------------------- */
+/* Service
+/* ----------------------- */
+/* ----------------------- */
+/* Work
+/* ----------------------- */
+
+.Work-Cards{
+    flex-direction: column;
+    .Card{
+        background: #E8E8E8;
+        max-width: 100%;
+        text-align: center;
+        flex: 0 90%;
+        padding: 3vh 4vw 0;
+        img{
+            margin-bottom: 0;
+            width: 80%;
+        }
+        p{
+        }
+    }
+}
+/* ----------------------- */
+/* Contact
+/* ----------------------- */
+/* ----------------------- */
+/* footer
+/* ----------------------- */
+
+}/* ------max-width 956px end ------------------------------------------- */
+
+/* ---------------------------------------------- */
+/* max-width 760px
+/* ---------------------------------------------- */
+@media (max-width: 760px) {
+/* ----------------------- */
+/* base
+/* ----------------------- */
+.Heading{
+    font-size: 30px;
+    font-weight: 600;
+}
+/* ----------------------- */
+/* header
+/* ----------------------- */
+
+.Header{
+    line-height: 3vh;
+}
+
+.Header-Inner{
+    a{
+        z-index: 4;
+    }
+}
+
+h1{
+    font-size: 20px;
+}
+
+.Nav{
+    nav{
+    display: none;
+    }
+}
+
+.Nav-Label{
+    display: block;
+    position:fixed;
+    top:1.8%;
+    right:2vh;
+    z-index: 4;
+    width: 32px;
+    height: 25px;
+    cursor: pointer;
+    &:before{
+        background-color: white;
+        border-radius: 5px;
+        content: "";
+        height: 3px;
+        position: absolute;
+        transform: translateY(-25px);
+        transition:0.6s;
+        width: 30px;
+        top: 110%;
+    }
+    &:after{
+        background-color: white;
+        border-radius: 5px;
+        content: "";
+        height: 3px;
+        position: absolute;
+        transform: translateY(-5px);
+        transition:0.6s;
+        width: 30px;
+        top: 90%;
+    }
+}
+
+.Nav-Checkbox:checked ~ nav{
+    display: block;
+    height: 100%;
+    /*top: 0%;*/
+    left: 0%;
+    position: fixed;
+    width: 100%;
+    background-image: linear-gradient(120deg, #cfa4f9 0%, #61a9f1 100%);
+    z-index: 2;
+    a{
+        font-size: 23px;
+    }
+    .Nav-Items{
+        flex-direction: column;
+        position: fixed;
+        top: 20vh;
+        left: 5vw;
+    }
+    .Nav-Item{
+        line-height: 3;
+    }
+}
+
+.Nav-Checkbox:checked ~ .Nav-Label:before{
+    transform:rotate(45deg) translate(0px);
+    top: 47%;
+}
+.Nav-Checkbox:checked ~ .Nav-Label:after{
+    transform:rotate(-45deg) translate(0px);
+    top: 47%;
+}
+
+/* ----------------------- */
+/* main
+/* ----------------------- */
+/* ----------------------- */
+/* Profile
+/* ----------------------- */
+.Profile-Layout{
+    padding: 37vh 10vw 0;
+    img{
+    width: 60px;
+    float: none;
+    margin-bottom: 3vh;
+    margin-right: 0;
+    }
+    p{
+        margin: 0 auto;
+    }
+    p:nth-child(2){
+        font-size: 30px;
+    }
+    p:nth-child(3){
+        font-size: 14px;
+    }
+}
+/* ----------------------- */
+/* About
+/* ----------------------- */
+.About{
+    margin: 6vh 10vw;
+    padding: 0;
+    text-align: center;
+    img{
+        float: none;
+        margin-bottom: 4vh;
+        margin-right: 0;
+        width: 150px;
+    }
+    p{
+        text-align: left;
+    }
+    p:nth-child(3){
+        font-size: 16px;
+    }
+    p:nth-child(4){
+        font-size: 14px;
+    }
+}
+/* ----------------------- */
+/* Service
+/* ----------------------- */
+
+.Service{
+    padding: 6vh 10vw 10vh 10vw;
+    img{
+        width: 90px;
+    }
+    .Service-List{
+        flex-direction: column;
+        .Service-Item{
+        max-width: 100%;
+        text-align: center;
+        flex: 0 90%;
+        padding: 0 0;
+        margin: 3vh 0;
+        img{
+            margin-bottom: 1vh;
+            }
+        p:nth-child(1){
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 2vh;
+            letter-spacing: 1px;
+        }
+        p:nth-child(3){
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 1.9;
+            letter-spacing: 1.5px;
+        }
+        }
+    }
+}
+/* ----------------------- */
+/* Work
+/* ----------------------- */
+.Work{
+    margin: 8vh 10vw 10vh;
+}
+/* ----------------------- */
+/* Contact
+/* ----------------------- */
+
+.Contact{
+    margin: 15vh 10vw 10vh;
+}
+
+.Contact-Inner{
+    input{
+        max-width: 100%;
+    }
+    textarea{
+        width: 100%;
+    }
+}
+
+.Contact-Submit{
+    width: 100%;
+}
+/* ----------------------- */
+/* footer
+/* ----------------------- */
+
+.Footer{
+    padding: 3vh 0;
+}
+
+.twitter{
+    margin-bottom: 1vh;
+}
+
+/* ----------------------- */
+/* Work-Page
+/* ----------------------- */
+
+.Work-Page-Content{
+    margin: 6vh 10vw;
+}
+
+.Work-Page-Cards{
+    grid-template-columns: repeat(1,1fr);
+}
+
+/* ----------------------- */
+/* Work-Selected
+/* ----------------------- */
+
+.Work-Header{
+    height: 100vw;
+    background-size: 80%;
+    padding-top: 6.6vh;
+}
+
+.Work-Content{
+    margin: 6vh 10vw;
+    .Heading{
+        font-size: 20px;
+    }
+}
+
+.Work-Summary{
+    .Detail{
+        font-size: 14px;
+        float: none;
+        margin-bottom: 5vh;
+        width: auto;
+        font-weight: 300;
+        span{
+            font-size: 12px;
+        }
+    }
+    .Text{
+        font-size: 14px;
+        font-weight: 300;
+        line-height: 2;
+    }
+}
+
+.Work-PCview{
+    img{
+        width: 80%;
+    }
+}
+.Work-SPview{
+    margin-bottom: 15vh;
+}
+
+}/* ------max-width 760px end ------------------------------------------- */

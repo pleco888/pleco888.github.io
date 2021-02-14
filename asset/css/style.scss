@@ -1,0 +1,546 @@
+@import url(sanitize.css);
+/* - - - - - - - - - - - - - - - -
+　　　　共通事項
+ - - - - - - - - - - - - - - - -*/
+
+
+/* ----------------------- */
+/* base
+/* ----------------------- */
+
+body {
+    font-family: "ヒラギノ角ゴシック", "Arial", "Hiragino Sans", "Meiryo", sans-serif;
+    color: #1a1a1a;
+    font-size: 14px;
+    letter-spacing: .5px;
+}
+
+img{
+width: 100%;
+vertical-align: bottom;
+}
+
+a {
+text-decoration: none;
+/*display: inline-block;*/
+display: inline;
+transition: 0.2s;
+    &:hover {
+        transition: 0.4s;
+        opacity: 0.6;
+    }
+}
+
+ol,ul{
+    list-style: none;
+}
+
+.Heading{
+    font-size: 65px;
+    font-weight: 600;
+}
+
+.cursor,
+.follower {
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 0; 
+  pointer-events: none;
+}
+
+.cursor {
+  width: 6px;
+  height: 6px;
+  background-color: #1a1a1a;
+  z-index: 1001;
+}
+
+.follower {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  border: solid #0059fe 2px;
+  /*color: rgba(#0059fe, .5);*/
+  z-index: 1000;
+  transition: transform ease .1s;
+  text-align: center;
+  span {
+    display: inline-block;
+    font-size: 14px;
+    font-weight: bold;
+    transform: scale(0);
+  }
+  &.is-active {
+    transform: scale(3);
+    background: rgba(#0059fe, .5);
+    border: none;
+  }
+}
+
+.pc {
+display: block;
+}
+
+.sp {
+display: none;
+}
+
+/* ----------------------- */
+/* header
+/* ----------------------- */
+
+.Header{
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    line-height: 6vh;
+    background-image: linear-gradient(120deg, rgba(224,195,252,.5) 0%, rgba(142,197,252,.5) 100%);
+    background:  (0,0%,100%,.8);
+}
+
+.Header-Inner{
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 4vw;
+}
+
+h1{
+    font-size: 25px;
+    font-weight: 600;
+    color: white;
+}
+
+.Nav{
+    margin-left: auto;
+    nav{
+        display: inline;
+    }
+}
+.Nav-Checkbox,.Nav-Label{
+    display: none;
+}
+
+.Nav-Items {
+    display: flex;
+}
+
+.Nav-Item {
+    font-size: 17px;
+    font-weight: 600;
+    a {
+        color: white;
+        padding-bottom: 5px;
+        &:hover {
+            color: #0048ce;
+        }
+    }
+}
+
+.Nav-Item:not(:last-child){
+    margin-right: 40px;
+}
+
+/* ----------------------- */
+/* main
+/* ----------------------- */
+
+/* ----------------------- */
+/* Profile
+/* ----------------------- */
+
+.Profile{
+    background-image: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%);
+    color: white;
+    height: 100vh;
+}
+.Profile-Layout{
+    padding: 45vh 4vw 0;
+    img{
+    width: 84px;
+    float: left;
+    margin-right: 40px;
+    }
+    p{
+        margin: 0 auto;
+    }
+    p:nth-child(2){
+        font-size: 50px;
+        font-weight: 500;
+        letter-spacing: 2px;
+    }
+    p:nth-child(3){
+        font-size: 16px;
+        font-weight: 400;
+    }
+}
+/* ----------------------- */
+/* About
+/* ----------------------- */
+
+.About{
+    clear: left;
+    color: #1a1a1a;
+    margin: 15vh 4vw 25vh;
+    img{
+        border-radius: 200px;
+        width: 250px;
+        float: left;
+        margin-right: 8vw;
+    }
+    p:nth-child(3){
+        font-size: 20px;
+        font-weight: 600;
+    }
+    p:nth-child(4){
+        font-size: 16px;
+        font-weight: 300;
+        line-height: 2;
+        overflow: hidden;
+    }
+}
+
+
+
+/* ----------------------- */
+/* Service
+/* ----------------------- */
+.Service{
+    background-image: linear-gradient(120deg, #cfa4f9 0%, #61a9f1 100%);
+    color: white;
+    padding: 15vh 4vw 20vh 4vw;
+    clear: left;
+    img{
+        width: 130px;
+    }
+    .Service-List{
+        display: flex;
+        justify-content: space-around;
+        .Service-Item{
+        max-width: 400px;
+        text-align: center;
+        flex: 0 31%;
+        padding: 0 0;
+        margin: 2vw;
+        img{
+            margin-bottom: 1vh;
+            }
+        p:nth-child(1){
+            font-size: 18px;
+            font-weight: 500;
+            margin-bottom: 5vh;
+            letter-spacing: 1px;
+        }
+        p:nth-child(3){
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 1.9;
+            letter-spacing: 1.5px;
+        }
+        }
+    }
+}
+
+/* ----------------------- */
+/* Work
+/* ----------------------- */
+
+.Work{
+    color: #1a1a1a;
+    margin: 15vh 4vw 25vh;
+}
+.Work-Cards{
+        display: flex;
+        justify-content: space-around;
+        margin: -2vh -1vw;
+    .Card-Link{
+        background: #E8E8E8;
+        color: #1a1a1a;
+        max-width: 100%;
+        text-align: center;
+        flex: 0 31%;
+        padding: 6vh 3vw;
+        margin: 4vh 0;
+        img{
+            width: 90%;
+            margin-bottom: 3vh;
+        }
+    }
+}
+
+/* ----------------------- */
+/* Contact
+/* ----------------------- */
+
+.Contact{
+    margin: 20vh 7vw 15vh;
+}
+.Contact-Inner{
+    box-shadow: 0 0 20px #989898;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2vh 6vw 10vh 6vw;
+    label{
+        display: block;
+        font-weight: 600;
+        margin-bottom: 8px;
+    }
+    input{
+        border: none;
+        border-bottom: 1px solid #577EC2;
+        display: block;
+        font-size: 17px;
+        line-height: 2;
+        max-width: 400px;
+        width: 100%;
+    }
+    textarea{
+        border: 1px solid #577EC2;
+        border-radius: 5px;
+        display: block;
+        font-size: 17px;
+        height: 25vh;
+        margin-bottom: 24px;
+        width: 90%;
+    }
+}
+
+.Contact-Content{
+    margin-bottom: 24px;
+}
+
+.Radio-Content{
+    font-weight: 600;
+    div{
+        display: block;
+    }
+    input{
+        display: inline;
+        line-height: 2;
+        margin-bottom: 0;
+        max-width: auto;
+        width: auto;
+    }
+    label{
+        color: #636363;
+        display: inline;
+        font-weight: 300;
+    }
+
+}
+
+.Contact-Submit{
+    background-image: linear-gradient(120deg, #005c97 0%, #363795 100%);
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: .5em;
+    padding: 1.5vh 1vw;
+    width: 40%;
+    &:hover {
+        transition: 0.4s;
+        opacity: 0.6;
+    }
+}
+
+/* ----------------------- */
+/* footer
+/* ----------------------- */
+
+.Footer{
+    background-image: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%);
+    padding: 10vh 0;
+    text-align: center;
+    margin: 0 auto;
+    color: white;
+    font-weight: 400;
+    p{
+        margin: 0;
+    }
+}
+
+.twitter{
+    color:#6a9ccf;
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: white;
+    line-height: 50px;
+    margin-bottom: 4vh;
+}
+
+/* ----------------------- */
+/* Work-Page
+/* ----------------------- */
+
+.Work-Page-Content{
+    margin: 15vh 4vw 25vh;
+}
+
+.Work-Page-Cards{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-gap: 30px;
+    /*.Card{
+            max-width: 100%;
+            text-align: center;
+            flex: 0 31%;
+            margin: 4vh 0;
+            img{
+                width: 100%;
+            }
+        }*/
+            .Link{
+            /*max-width: 100%;
+            text-align: center;
+            flex: 0 31%;
+            margin: 4vh 0;*/
+            background: #E8E8E8;
+            display: block;
+            figure{
+                margin: 0;
+            }
+            img{
+                width: 100%;
+            }
+                figcaption{
+                    padding: 0 0 2vh 2vh;
+                    text-align: left;
+                }
+                p{
+                    color: #1a1a1a;
+                    display: inline;
+                }
+                p:first-child{
+                    font-weight: 600;
+                    margin: 0;
+                }
+                p:last-child{
+                    font-weight: 200;
+                }
+            }
+    }
+
+/* ----------------------- */
+/* Work-Selected
+/* ----------------------- */
+
+.Work-Header{
+    background-color: #E8E8E8;  /* old browser */
+    background-position: 50% 65%;
+    background-size: 500px;
+    background-repeat: no-repeat;
+    height: 80vh;
+    /*padding-top: 10.6vh;*/
+}
+
+.Narisan{ background-image: url(../../asset/img/narisan.png); }
+.Nuno-sample{ background-image: url(../../asset/img/nuno-sample.png); }
+.Motooblog{ background-image: url(../../asset/img/motooblog.png); }
+
+.Work-Content{
+    margin: 15vh 4vw 45vh;
+    .Heading{
+        font-size: 30px;
+        color: #1a1a1a;
+        margin-bottom: 8vh;
+    }
+}
+
+.Work-Summary{
+    .Detail{
+        font-size: 16px;
+        width: 42vh;
+        float: left;
+        ul{
+            margin: 0 0 3vh 0;
+            padding: 0;
+            li{
+            margin-bottom: 1vh;
+                }
+            li:nth-last-child(1){
+                margin-bottom: 4vh;
+                    }
+            }
+        span{
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            color: grey;
+        }
+        a{
+            background: #B69AF8;
+            border-radius: 20px;
+            color: white;
+            padding: 1.5vh 2vh;
+            
+        }
+    }
+    .Text{
+        font-size: 16px;
+    }
+}
+
+.Work-PCview{
+    clear: left;
+    text-align: center;
+    margin-bottom: 15vh;
+    img{
+        border: 1px solid #a9a9a9;
+        width: 50vw;
+    }
+}
+.Work-SPview{
+    margin-bottom: 15vh;
+}
+
+$iphone-width: 250px;
+$iphone-height: 490px;
+
+.Iphone-Device {
+	position: relative;
+	margin: 30px auto;
+	background-color: white;
+	width: $iphone-width;
+	padding: 10px;
+	border-radius: 40px;
+	box-shadow: 0 1px 24px #999;
+}
+
+.Wrapper {
+	overflow-x:hidden;
+	overflow-y:scroll;
+	height: $iphone-height;
+    border:1px solid #a9a9a9;
+	border-radius:30px;
+	background-color: white;
+}
+
+.Wrapper img {
+    position: relative;
+	/*width: $iphone-width -15px;*/
+	border:0;
+}
+.Sensor {
+    background: white;
+    border-bottom-left-radius: 16px;
+    border-bottom-right-radius: 16px;
+    height: 14px;
+    left: 50%;
+    margin-left: -59px;
+    position: absolute;
+    top: 10px;
+    width: 120px;
+    z-index: 5;
+  }
+
+/* ----------------------- */
+/* import(media quary)
+/* ----------------------- */
+@import "media";

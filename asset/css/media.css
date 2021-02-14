@@ -1,0 +1,318 @@
+/* ---------------------------------------------- */
+/* max-width 956px
+/* ---------------------------------------------- */
+@media (max-width: 956px) {
+  /* ----------------------- */
+  /* base
+/* ----------------------- */
+  .Heading {
+    text-align: left;
+  }
+  /* ----------------------- */
+  /* header
+/* ----------------------- */
+  /* ----------------------- */
+  /* main
+/* ----------------------- */
+  /* ----------------------- */
+  /* Profile
+/* ----------------------- */
+  /* ----------------------- */
+  /* About
+/* ----------------------- */
+  /* ----------------------- */
+  /* Service
+/* ----------------------- */
+  /* ----------------------- */
+  /* Work
+/* ----------------------- */
+  .Work-Cards {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .Work-Cards .Card {
+    background: #E8E8E8;
+    max-width: 100%;
+    text-align: center;
+    -webkit-box-flex: 0;
+        -ms-flex: 0 90%;
+            flex: 0 90%;
+    padding: 3vh 4vw 0;
+  }
+  .Work-Cards .Card img {
+    margin-bottom: 0;
+    width: 80%;
+  }
+  /* ----------------------- */
+  /* Contact
+/* ----------------------- */
+  /* ----------------------- */
+  /* footer
+/* ----------------------- */
+}
+
+/* ------max-width 956px end ------------------------------------------- */
+/* ---------------------------------------------- */
+/* max-width 760px
+/* ---------------------------------------------- */
+@media (max-width: 760px) {
+  /* ----------------------- */
+  /* base
+/* ----------------------- */
+  .Heading {
+    font-size: 30px;
+    font-weight: 600;
+  }
+  /* ----------------------- */
+  /* header
+/* ----------------------- */
+  .Header {
+    line-height: 3vh;
+  }
+  .Header-Inner a {
+    z-index: 4;
+  }
+  h1 {
+    font-size: 20px;
+  }
+  .Nav nav {
+    display: none;
+  }
+  .Nav-Label {
+    display: block;
+    position: fixed;
+    top: 1.8%;
+    right: 2vh;
+    z-index: 4;
+    width: 32px;
+    height: 25px;
+    cursor: pointer;
+  }
+  .Nav-Label:before {
+    background-color: white;
+    border-radius: 5px;
+    content: "";
+    height: 3px;
+    position: absolute;
+    -webkit-transform: translateY(-25px);
+            transform: translateY(-25px);
+    -webkit-transition: 0.6s;
+    transition: 0.6s;
+    width: 30px;
+    top: 110%;
+  }
+  .Nav-Label:after {
+    background-color: white;
+    border-radius: 5px;
+    content: "";
+    height: 3px;
+    position: absolute;
+    -webkit-transform: translateY(-5px);
+            transform: translateY(-5px);
+    -webkit-transition: 0.6s;
+    transition: 0.6s;
+    width: 30px;
+    top: 90%;
+  }
+  .Nav-Checkbox:checked ~ nav {
+    display: block;
+    height: 100%;
+    /*top: 0%;*/
+    left: 0%;
+    position: fixed;
+    width: 100%;
+    background-image: linear-gradient(120deg, #cfa4f9 0%, #61a9f1 100%);
+    z-index: 2;
+  }
+  .Nav-Checkbox:checked ~ nav a {
+    font-size: 23px;
+  }
+  .Nav-Checkbox:checked ~ nav .Nav-Items {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    position: fixed;
+    top: 20vh;
+    left: 5vw;
+  }
+  .Nav-Checkbox:checked ~ nav .Nav-Item {
+    line-height: 3;
+  }
+  .Nav-Checkbox:checked ~ .Nav-Label:before {
+    -webkit-transform: rotate(45deg) translate(0px);
+            transform: rotate(45deg) translate(0px);
+    top: 47%;
+  }
+  .Nav-Checkbox:checked ~ .Nav-Label:after {
+    -webkit-transform: rotate(-45deg) translate(0px);
+            transform: rotate(-45deg) translate(0px);
+    top: 47%;
+  }
+  /* ----------------------- */
+  /* main
+/* ----------------------- */
+  /* ----------------------- */
+  /* Profile
+/* ----------------------- */
+  .Profile-Layout {
+    padding: 37vh 10vw 0;
+  }
+  .Profile-Layout img {
+    width: 60px;
+    float: none;
+    margin-bottom: 3vh;
+    margin-right: 0;
+  }
+  .Profile-Layout p {
+    margin: 0 auto;
+  }
+  .Profile-Layout p:nth-child(2) {
+    font-size: 30px;
+  }
+  .Profile-Layout p:nth-child(3) {
+    font-size: 14px;
+  }
+  /* ----------------------- */
+  /* About
+/* ----------------------- */
+  .About {
+    margin: 6vh 10vw;
+    padding: 0;
+    text-align: center;
+  }
+  .About img {
+    float: none;
+    margin-bottom: 4vh;
+    margin-right: 0;
+    width: 150px;
+  }
+  .About p {
+    text-align: left;
+  }
+  .About p:nth-child(3) {
+    font-size: 16px;
+  }
+  .About p:nth-child(4) {
+    font-size: 14px;
+  }
+  /* ----------------------- */
+  /* Service
+/* ----------------------- */
+  .Service {
+    padding: 6vh 10vw 10vh 10vw;
+  }
+  .Service img {
+    width: 90px;
+  }
+  .Service .Service-List {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .Service .Service-List .Service-Item {
+    max-width: 100%;
+    text-align: center;
+    -webkit-box-flex: 0;
+        -ms-flex: 0 90%;
+            flex: 0 90%;
+    padding: 0 0;
+    margin: 3vh 0;
+  }
+  .Service .Service-List .Service-Item img {
+    margin-bottom: 1vh;
+  }
+  .Service .Service-List .Service-Item p:nth-child(1) {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 2vh;
+    letter-spacing: 1px;
+  }
+  .Service .Service-List .Service-Item p:nth-child(3) {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.9;
+    letter-spacing: 1.5px;
+  }
+  /* ----------------------- */
+  /* Work
+/* ----------------------- */
+  .Work {
+    margin: 8vh 10vw 10vh;
+  }
+  /* ----------------------- */
+  /* Contact
+/* ----------------------- */
+  .Contact {
+    margin: 15vh 10vw 10vh;
+  }
+  .Contact-Inner input {
+    max-width: 100%;
+  }
+  .Contact-Inner textarea {
+    width: 100%;
+  }
+  .Contact-Submit {
+    width: 100%;
+  }
+  /* ----------------------- */
+  /* footer
+/* ----------------------- */
+  .Footer {
+    padding: 3vh 0;
+  }
+  .twitter {
+    margin-bottom: 1vh;
+  }
+  /* ----------------------- */
+  /* Work-Page
+/* ----------------------- */
+  .Work-Page-Content {
+    margin: 6vh 10vw;
+  }
+  .Work-Page-Cards {
+    -ms-grid-columns: (1fr)[1];
+        grid-template-columns: repeat(1, 1fr);
+  }
+  /* ----------------------- */
+  /* Work-Selected
+/* ----------------------- */
+  .Work-Header {
+    height: 100vw;
+    background-size: 80%;
+    padding-top: 6.6vh;
+  }
+  .Work-Content {
+    margin: 6vh 10vw;
+  }
+  .Work-Content .Heading {
+    font-size: 20px;
+  }
+  .Work-Summary .Detail {
+    font-size: 14px;
+    float: none;
+    margin-bottom: 5vh;
+    width: auto;
+    font-weight: 300;
+  }
+  .Work-Summary .Detail span {
+    font-size: 12px;
+  }
+  .Work-Summary .Text {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 2;
+  }
+  .Work-PCview img {
+    width: 80%;
+  }
+  .Work-SPview {
+    margin-bottom: 15vh;
+  }
+}
+
+/* ------max-width 760px end ------------------------------------------- */
+/*# sourceMappingURL=media.css.map */
