@@ -39,6 +39,14 @@ ol, ul {
 .Heading {
   font-size: 65px;
   font-weight: 600;
+  margin: 0;
+}
+
+.Heading-Description {
+  font-size: 15px;
+  margin: -.3em 0 4em 0;
+  font-weight: 300;
+  text-align: left;
 }
 
 .cursor,
