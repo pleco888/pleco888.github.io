@@ -9,19 +9,21 @@ const memoContent = document.getElementById('memo-content');
 const memoGrid = document.getElementById('memo-grid');
 const searchInput = document.getElementById('search-input');
 const titleList = document.getElementById('title-list');
+const addBtn = document.getElementById('addBtn');
 const modal = document.getElementById('modal');
 const modalTitle = document.getElementById('modal-title');
 const modalBody = document.getElementById('modal-body');
 const modalSave = document.getElementById('modal-save');
 const modalDelete = document.getElementById('modal-delete');
 const darkModeToggle = document.getElementById('dark-mode-toggle');
+const overlay = document.getElementById("overlay");
 
 // ---- メモ配列 ----
 let memos = JSON.parse(localStorage.getItem('memos')) || [];
 let currentEditId = null;
 
 // =============================
-// メモ追加
+// 新規メモフォーム送信
 // =============================
   memoForm.addEventListener('submit', (e) => {
   e.preventDefault();
@@ -50,16 +52,17 @@ let currentEditId = null;
 function renderGrid() {
   memoGrid.innerHTML = "";
 
-  const keyword = searchInput.value.toLowerCase();
+  const keyword = (searchInput.value || "").toLowerCase();
 
   memos
-    .filter(m => m.title.toLowerCase().includes(keyword))
-    .forEach(memo => {
+  //.filter(m => m.title.toLowerCase().includes(keyword))
+    .filter((m) => m.title && m.title.toLowerCase().includes(keyword))
+    .forEach((memo) => {
       const card = document.createElement('div');
       card.className = 'memo-card fade-in';
       card.innerHTML = `
         <h3>${memo.title}</h3>
-        <p>${memo.content.substring(0, 50)}...</p>
+        <p>${(memo.content || "").substring(0, 50)}...</p>
       `;
 
       card.addEventListener('click', () => openModal(memo.id));
@@ -74,11 +77,12 @@ function renderGrid() {
 function renderTitles() {
   titleList.innerHTML = "";
 
-  const keyword = searchInput.value.toLowerCase();
+  const keyword = (searchInput.value || "").toLowerCase();
 
   memos
-    .filter(m => m.title.toLowerCase().includes(keyword))
-    .forEach(memo => {
+  //.filter(m => m.title.toLowerCase().includes(keyword))
+    .filter((m) => m.title && m.title.toLowerCase().includes(keyword))
+    .forEach((memo) => {
       const li = document.createElement('li');
       li.textContent = memo.title;
       li.className = 'title-item fade-in';
@@ -90,51 +94,85 @@ function renderTitles() {
 }
 
 // =============================
-// モーダル開く
+// モーダル開く (新規＆編集)
 // =============================
-function openModal(id) {
-  const memo = memos.find(m => m.id === id);
+
+addBtn.addEventListener('click', () => {
+openModal(null);
+});
+
+function openModal(id = null) {
+
+  const memo = memos.find((m) => m.id === id);
   currentEditId = id;
 
+  // 新規モード
+  if (!memo) {
+  modalTitle.value = "";
+  modalBody.value = "";
+  } else {
   modalTitle.value = memo.title;
   modalBody.value = memo.content;
+  }
 
-  modal.classList.add('open');
+  modal.classList.remove("hidden");
+  overlay.classList.remove("hidden");
 }
 
 // =============================
 // モーダル閉じる（背景クリック）
 // =============================
-modal.addEventListener('click', (e) => {
+/* modal.addEventListener('click', (e) => {
   if (e.target === modal) {
     modal.classList.remove('open');
   }
-});
+});  */
+overlay.addEventListener("click", closeModal);
+
+  function closeModal() {
+  modal.classList.add("hidden");
+  overlay.classList.add("hidden");
+  }
 
 // =============================
-// メモ保存（編集）
+// メモ保存（編集or新規）
 // =============================
- modalSave.addEventListener('click', () => {
-  const memo = memos.find(m => m.id === currentEditId);
-  memo.title = modalTitle.value;
-  memo.content = modalBody.value;
+modalSave.addEventListener("click", () => {
+const title = modalTitle.value.trim();
+const content = modalBody.value.trim();
+if (!title) return;
+// 新規メモの場合
+if (currentEditId === null) {
+const newMemo = {
+id: Date.now(),
+title,
+content,
+};
+memos.push(newMemo);
+} else {
+// 編集モード
+const memo = memos.find((m) => m.id === currentEditId);
+memo.title = title;
+memo.content = content;
+}
 
   saveMemos();
   renderGrid();
   renderTitles();
-  modal.classList.remove('open');
+  closeModal();
 }); 
 
 // =============================
 // メモ削除
 // =============================
- modalDelete.addEventListener('click', () => {
-  memos = memos.filter(m => m.id !== currentEditId);
-  saveMemos();
-  renderGrid();
-  renderTitles();
-  modal.classList.remove('open');
-}); 
+modalDelete.addEventListener("click", () => {
+if (currentEditId === null) return;
+  memos = memos.filter((m) => m.id !== currentEditId);
+saveMemos();
+renderGrid();
+renderTitles();
+modal.classList.remove('open');	closeModal();
+});
 
 // =============================
 // ローカルストレージ保存

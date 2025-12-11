@@ -10,7 +10,7 @@
   <div class="layout">
     <aside class="sidebar">
       <input type="text" id="search-input" placeholder="メモ検索" />
-      <ul id="titleList"></ul>
+      <ul id="title-list"></ul>
     </aside>
 
     <main class="main">
@@ -19,14 +19,21 @@
         <button id="addBtn">＋ メモ追加</button>
         <button id="dark-mode-toggle">🌙</button>
       </div>
+
+    <form id="memo-form" class="hidden">
+    <input id="memo-title" type="text" placeholder="タイトル" required />
+    <textarea id="memo-content" placeholder="内容"></textarea>
+    <button type="submit">追加</button>
+    </form>
+
       <div id="memo-grid" class="grid"></div>
     </main>
   </div>
 
   <div id="overlay" class="hidden"></div>
   <div id="modal" class="hidden">
-    <input type="text" id="editTitle" class="title-input" />
-    <textarea id="editBody" class="body-input"></textarea>
+    <input type="text" id="modal-title" class="title-input" />
+    <textarea id="modal-body" class="body-input"></textarea>
     <div class="modal-buttons">
       <button id="modal-save">保存</button>
       <button id="modal-delete" class="delete">削除</button>
