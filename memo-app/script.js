@@ -124,15 +124,21 @@ function openModal(id = null) {
   overlay.classList.remove("hidden");
 }
 
+
 // =============================
 // モーダル閉じる（背景クリック）
 // =============================
-/* modal.addEventListener('click', (e) => {
+ modal.addEventListener('click', (e) => {
   if (e.target === modal) {
     modal.classList.remove('open');
   }
-});  */
-overlay.addEventListener("click", closeModal);
+});  
+//overlay.addEventListener("click", closeModal);
+
+overlay.addEventListener("click", () => {
+  sidebar.classList.remove("open");
+  closeModal();
+});
 
   function closeModal() {
   modal.classList.add("hidden");
@@ -197,12 +203,25 @@ menuBtn.addEventListener("click", () => {
 });
 
 overlay.addEventListener("click", () => {
-  //sidebar.classList.remove("open");
+  sidebar.classList.remove("open");
   closeModal();
 });
 
+function closeModal() {
+  modal.classList.add("hidden");
+  overlay.classList.add("hidden");
+}
+
 const sideAddBtn = document.getElementById("sideAddBtn");
 sideAddBtn.addEventListener("click", () => openModal(null));
+
+// ×ボタン操作
+const sideCloseBtn = document.getElementById("sideCloseBtn");
+
+sideCloseBtn.addEventListener("click", () => {
+  sidebar.classList.remove("open");
+  overlay.classList.add("hidden");
+});
 
 // =============================
 // 検索
