@@ -197,7 +197,7 @@ menuBtn.addEventListener("click", () => {
 });
 
 overlay.addEventListener("click", () => {
-  sidebar.classList.remove("open");
+  //sidebar.classList.remove("open");
   closeModal();
 });
 
