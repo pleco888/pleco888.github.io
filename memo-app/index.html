@@ -1,27 +1,52 @@
 <!DOCTYPE html>
-
 <html lang="ja">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>メモアプリ</title>
   <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
-  <div class="container">
-    <h1>メモアプリ</h1>
+  <div class="layout">
+    <aside class="sidebar">
 
-    <button id="themeToggle" class="theme-btn">🌙 </button>
+      <div class="sidebar-header">
+        <input type="text" id="search-input" placeholder="メモ検索" />
+        <button id="sideAddBtn">＋</button>
+      </div>
 
-    <textarea id="memoInput" placeholder="メモを入力"></textarea>
-    <button id="addBtn" class="add-btn">追加</button>
+      <input type="text" id="search-input" placeholder="メモ検索" />
+      <ul id="title-list"></ul>
+    </aside>
 
-    <ul id="memoList"></ul>
+    <main class="main">
+      <div class="header">
+        <button id="menuBtn" class="menu-btn">☰</button>
+        <h1>メモアプリ</h1>
+        <button id="addBtn">＋ メモ追加</button>
+        <button id="dark-mode-toggle">🌙</button>
+      </div>
+
+    <form id="memo-form" class="hidden">
+    <input id="memo-title" type="text" placeholder="タイトル" required />
+    <textarea id="memo-content" placeholder="内容"></textarea>
+    <button type="submit">追加</button>
+    </form>
+
+      <div id="memo-grid" class="grid"></div>
+    </main>
+  </div>
+
+  <div id="overlay" class="hidden"></div>
+  <div id="modal" class="hidden">
+    <input type="text" id="modal-title" class="title-input" />
+    <textarea id="modal-body" class="body-input"></textarea>
+    <div class="modal-buttons">
+      <button id="modal-save">保存</button>
+      <button id="modal-delete" class="delete">削除</button>
+    </div>
   </div>
 
   <script src="script.js"></script>
 </body>
-
 </html>
