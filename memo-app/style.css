@@ -175,11 +175,16 @@ body.dark {
   gap: 12px;
   box-shadow: 0 2px 12px rgba(0,0,0,0.4);
   opacity: 0;
+  transform: translate(-50%, -50%) scale(0.8);
+}
+
+#modal.show {
+  display: flex;
   animation: modalPop 0.25s ease forwards;
 }
 
 .hidden {
-  display: none !important;
+  display: none;
 }
 
 .title-input, .body-input {
