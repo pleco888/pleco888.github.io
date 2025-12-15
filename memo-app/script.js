@@ -105,6 +105,8 @@ openModal(null);
 });
 
 function openModal(id = null) {
+  // サイドバーを閉じる
+    sidebar.classList.remove("open");
 
   const memo = memos.find((m) => m.id === id);
   currentEditId = id;
@@ -141,29 +143,30 @@ overlay.addEventListener("click", closeModal);
 // メモ保存（編集or新規）
 // =============================
 modalSave.addEventListener("click", () => {
-const title = modalTitle.value.trim();
-const content = modalBody.value.trim();
-if (!title) return;
-// 新規メモの場合
-if (currentEditId === null) {
-const newMemo = {
-id: Date.now(),
-title,
-content,
-};
-memos.push(newMemo);
-} else {
-// 編集モード
-const memo = memos.find((m) => m.id === currentEditId);
-memo.title = title;
-memo.content = content;
-}
+  let title = modalTitle.value.trim();
+  const content = modalBody.value.trim();
+
+  // 自動タイトル
+  if (!title) title = "タイトル";
+
+  if (currentEditId === null) {
+    memos.push({
+      id: Date.now(),
+      title,
+      content,
+    });
+  } else {
+    const memo = memos.find((m) => m.id === currentEditId);
+    memo.title = title;
+    memo.content = content;
+  }
 
   saveMemos();
   renderGrid();
   renderTitles();
   closeModal();
-}); 
+});
+
 
 // =============================
 // メモ削除
@@ -221,3 +224,4 @@ darkModeToggle.addEventListener('click', () => {
 // =============================
 renderGrid();
 renderTitles();
+
