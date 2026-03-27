@@ -161,12 +161,51 @@
         .btn-main:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(0,0,0,0.3); }*/
 
 
-
         /* Layout */
-        .container { max-width: 1100px; margin: 0 auto; padding: 0 25px; }
+        .container { 
+            max-width: 1100px; 
+            margin: 0 auto; 
+            padding: 0 25px; }
         section { padding: 100px 50px; }
         .bg-gray { background-color: var(--bg-light); }
 
+
+         /* Service Cards */
+        .services {
+            margin-top: -60px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .service-card {
+            background: #fff;
+            padding: 40px 30px;
+            border-radius: 15px;
+            box-shadow: var(--card-shadow);
+            transition: var(--transition);
+            text-align: center;
+        }
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+        .service-card h3 {
+            color: var(--primary-color);
+            margin: 15px 0;
+        }
+
+
+        /* Animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        
         /* Typography */
         .section-title { text-align: center; margin-bottom: 60px; }
         .section-title h2 { font-size: 2.2rem; color: var(--primary); margin-bottom: 15px; position: relative; display: inline-block; }
@@ -376,13 +415,32 @@
     </section>
 
 
+    <section class="container">
+    <div class="services">
+        <div class="service-card reveal">
+            <h3>EC戦略設計</h3>
+            <p>戦略設計からディレクションまで伴走<br>
+            ブランド軸の構築</p>
+        </div>
+        <div class="service-card reveal">
+            <h3>Web制作代行</h3>
+            <p>「売れる導線」をデザインとデータの知見から形にします。</p>
+        </div>
+        <div class="service-card reveal">
+            <h3>分析・改善</h3>
+            <p>数字に基づき、次の打ち手を共に考え提案します。</p>
+        </div>
+    </div>
+</section>
+
+
     <section class="problems container">
         <div class="problem-box reveal">
             <div class="section-title">
                 <h2>こんなお悩み、ありませんか？</h2>
             </div>
             <ul class="problem-list">
-                <li>アクセスはあるのに、なかなか購入に繋がらない</li>
+                <li>購入ページを作ったのに、商品が売れる気配がない</li>
                 <li>モール出店の設定が複雑すぎて、手が止まっている</li>
                 <li>自分のショップを客観的に見る相談相手がいない</li>
                 <li>デザインも分析も全部一人でやっていて限界を感じる</li>
