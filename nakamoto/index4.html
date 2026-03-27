@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NAKAMOTO's | 今ある価値を、正しく届ける。EC制作・運営支援</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700&family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #007670; /* 添付画像のエメラルド */
+            --accent: #004c45; /* 深緑 */
+            --text: #333;
+            --text-light: #fff;
+            --white: #fff;
+            --bg-gray: #f8fbfb;
+            --grad: linear-gradient(135deg, #007670 0%, #004c45 100%); /* 完全再現グラデーション */
+            --shadow: 0 10px 30px rgba(0,0,0,0.08);
+            --radius: 12px;
+            --transition: all 0.4s ease;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            color: var(--text);
+            line-height: 1.8;
+            background-color: var(--white);
+            overflow-x: hidden;
+        }
+
+        /* Layout */
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 25px; }
+        section { padding: 80px 0; position: relative; }
+
+        /* Typography */
+        .section-title { text-align: center; margin-bottom: 50px; }
+        .section-title h2 { font-size: 2.5rem; color: var(--primary); display: inline-block; position: relative; padding-bottom: 15px; text-transform: uppercase; font-family: 'Montserrat', sans-serif; }
+        .section-title h2::after { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 60px; height: 3px; background: var(--primary); }
+        .section-title p { font-weight: bold; font-size: 1.2rem; color: var(--primary); margin-top: 15px; }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 16px 45px;
+            background: var(--accent);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+        }
+        .btn:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(0,0,0,0.25); }
+
+        /* Header (Nav + Hamburger) */
+        header {
+            position: fixed;
+            top: 0; left: 0; width: 100%;
+            padding: 20px 0;
+            z-index: 1000;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(5px);
+            transition: var(--transition);
+        }
+        .header-inner { display: flex; align-items: center; justify-content: space-between; }
+        .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--primary);
+            text-decoration: none;
+        }
+        .logo span { font-weight: 300; } /* 's */
+
+        .gnav { display: flex; align-items: center; gap: 30px; }
+        .gnav a { text-decoration: none; color: var(--primary); font-size: 0.9rem; transition: var(--transition); }
+        .gnav a:hover { opacity: 0.7; }
+        .gnav .btn { padding: 10px 20px; font-size: 0.9rem; }
+
+        /* Hamburger Menu Icon */
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            width: 30px;
+            height: 25px;
+            position: relative;
+            z-index: 1100;
+        }
+        .hamburger span {
+            display: block;
+            width: 100%;
+            height: 3px;
+            background: var(--primary);
+            border-radius: 3px;
+            position: absolute;
+            transition: var(--transition);
+        }
+        .hamburger span:nth-child(1) { top: 0; }
+        .hamburger span:nth-child(2) { top: 11px; }
+        .hamburger span:nth-child(3) { bottom: 0; }
+
+        /* Hamburger Active State (✕印へアニメーション) */
+        .hamburger.active span:nth-child(1) { transform: translateY(11px) rotate(45deg); }
+        .hamburger.active span:nth-child(2) { opacity: 0; }
+        .hamburger.active span:nth-child(3) { transform: translateY(-11px) rotate(-45deg); }
+
+        /* Mobile Nav */
+        .mobile-nav {
+            position: fixed;
+            top: -100%; left: 0; width: 100%; height: 100vh;
+            background: rgba(0,76,69,0.95); /* 深緑の透過背景 */
+            padding-top: 100px;
+            z-index: 1050;
+            display: flex; flex-direction: column; align-items: center; gap: 40px;
+            transition: var(--transition);
+        }
+        .mobile-nav.active { top: 0; }
+        .mobile-nav a { text-decoration: none; color: #fff; font-size: 1.5rem; font-weight: bold; }
+        .mobile-nav .btn { padding: 15px 40px; font-size: 1.2rem; }
+
+        /* Hero (完全再現グラデーション) */
+        .hero {
+            background: var(--grad); /* 添付画像のグラデーション */
+            color: var(--text-light);
+            padding: 180px 0 100px;
+            clip-path: ellipse(150% 100% at 50% 0%); /* 白いウェーブの再現 */
+        }
+        .hero-inner { display: flex; align-items: center; justify-content: space-between; text-align: left; gap: 50px; }
+        .hero-text { flex: 1; }
+        .hero-text h1 { font-size: 3rem; line-height: 1.3; margin-bottom: 25px; font-weight: bold; }
+        .hero-text p { font-size: 1.1rem; margin-bottom: 40px; opacity: 0.9; }
+
+        .hero-img { flex: 1; text-align: right; }
+        .hero-img img { width: 100%; max-width: 500px; border-radius: 20px; box-shadow: 20px 20px 0 rgba(255,255,255,0.1); }
+
+        /* Service Cards */
+        .bg-wave { background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23f8fbfb" d="M0,160L48,176C96,192,192,224,288,224C384,224,480,192,576,165.3C672,139,768,117,864,138.7C960,160,1056,224,1152,240C1248,256,1344,224,1392,208L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>') no-repeat bottom/cover; padding-bottom: 120px; }
+        .bg-wave-flip { background-color: var(--bg-gray); padding-top: 50px; }
+
+        .service-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+        .service-card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            text-align: left;
+        }
+        .service-card:hover { transform: translateY(-8px); }
+        .card-icon { font-size: 2.2rem; margin-bottom: 20px; display: block; color: var(--primary); }
+        .service-card h3 { font-size: 1.1rem; margin-bottom: 15px; color: var(--primary); }
+        .service-card ul { list-style: disc; margin-left: 20px; font-size: 0.9rem; color: #555; }
+
+        /* Footer */
+        footer { padding: 60px 0; background: #333; color: #fff; text-align: center; font-size: 0.8rem; }
+        footer p { opacity: 0.6; }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero-inner { flex-direction: column; text-align: center; }
+            .hero-text h1 { font-size: 2.5rem; }
+            .hero-img { text-align: center; }
+            .service-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 768px) {
+            .gnav { display: none; }
+            .hamburger { display: block; }
+            .service-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo">NAKAMOTO<span>'s</span></a>
+            
+            <nav class="gnav">
+                <a href="#about">About us</a>
+                <a href="#service">Service</a>
+                <a href="#strength">Strength</a>
+                <a href="#company">Company</a>
+                <a href="#contact" class="btn">無料で相談する</a>
+            </nav>
+
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <nav class="mobile-nav">
+        <a href="#about">About us</a>
+        <a href="#service">Service</a>
+        <a href="#strength">Strength</a>
+        <a href="#company">Company</a>
+        <a href="#contact" class="btn">無料で相談する</a>
+    </nav>
+
+    <section class="hero" id="about">
+        <div class="container">
+            <div class="hero-inner">
+                <div class="hero-text">
+                    <p style="letter-spacing: 4px; font-weight: bold; margin-bottom: 10px; text-transform: uppercase; font-family: Montserrat, sans-serif;">NAKAMOTO's</p>
+                    <h1>今ある価値を、<br>正しく届ける。</h1>
+                    <p>一時の魅力ではなく、納得して選ばれる体験を<br>EC制作・運営サポートで実現します。</p>
+                    <a href="#contact" class="btn">無料相談はこちら</a>
+                </div>
+                <div class="hero-img">
+                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=600&q=80" alt="二人のパートナー">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container bg-wave" id="service">
+        <div class="section-title">
+            <h2>Service</h2>
+            <p>ECの成果にコミットする 戦略設計型パートナー</p>
+        </div>
+        <div class="service-grid">
+            <div class="service-card">
+                <span class="card-icon">📈</span>
+                <h3>EC戦略設計</h3>
+                <ul>
+                    <li>売れる仮説を設計します</li>
+                    <li>ブランド軸の構築</li>
+                </ul>
+            </div>
+            <div class="service-card">
+                <span class="card-icon">📝</span>
+                <h3>制作支援</h3>
+                <ul>
+                    <li>戦略設計からディレクションまで支援</li>
+                </ul>
+            </div>
+            <div class="service-card">
+                <span class="card-icon">🎨</span>
+                <h3>クリエイティブ制作</h3>
+                <ul>
+                    <li>ブランドの魅力を伝えるクリエイティブ</li>
+                </ul>
+            </div>
+            <div class="service-card">
+                <span class="card-icon">💻</span>
+                <h3>Web制作代行</h3>
+                <ul>
+                    <li>成果につながるWeb制作</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-wave-flip">
+        <div class="container">
+            <div class="section-title">
+                <h2>Service</h2>
+                <p>日々の運営に並走する パートナーシップ</p>
+            </div>
+            <div class="service-grid">
+                <div class="service-card">
+                    <span class="card-icon">🛠️</span>
+                    <h3>モール開設・設定</h3>
+                    <ul>
+                        <li>楽天やYahoo!ショッピングの複雑な初期設定や商品登録</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <span class="card-icon">💻</span>
+                    <h3>HTML/CSS実装</h3>
+                    <ul>
+                        <li>表示速度やスマホでの見やすさを重視した、高品質なコーディング</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <span class="card-icon">📊</span>
+                    <h3>運営コンサル</h3>
+                    <ul>
+                        <li>キャンペーン活用やリピート施策など、日々の運営にアドバイス</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <span class="card-icon">📝</span>
+                    <h3>マニュアル作成</h3>
+                    <ul>
+                        <li>納品後もオーナー様ご自身で更新できるよう 手順書作成</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="container">
+            <p>&copy; 2026 NAKAMOTO EC Design & Support</p>
+        </div>
+    </footer>
+
+    <script>
+        // Hamburger Menu Toggle
+        const hamburger = document.querySelector('.hamburger');
+        const mobileNav = document.querySelector('.mobile-nav');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            mobileNav.classList.toggle('active');
+        });
+
+        // Close mobile menu when a link is clicked
+        mobileNav.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                mobileNav.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NAKAMOTO's | 今ある価値を、正しく届ける。</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700&family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #007670;
+            --accent: #004c45;
+            --text: #333;
+            --white: #ffffff;
+            --grad: linear-gradient(135deg, #007670 0%, #004c45 100%);
+            --transition: all 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            color: var(--text);
+            overflow-x: hidden;
+            transition: background-color 0.3s;
+        }
+        
+        /* メニュー開閉時に背景を固定 */
+        body.nav-open { overflow: hidden; }
+
+        /* --- Header & Logo --- */
+        header {
+            position: fixed;
+            top: 0; left: 0; width: 100%;
+            padding: 30px 50px;
+            z-index: 2000; /* 最前面 */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--white);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        /* メニュー展開時はロゴの色を反転 */
+        body.nav-open .logo { color: var(--primary); }
+
+        /* --- Modern Hamburger / Close Button --- */
+        .nav-toggle {
+            width: 44px;
+            height: 44px;
+            cursor: pointer;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: transparent;
+            border: none;
+            outline: none;
+        }
+        .nav-toggle span {
+            display: block;
+            width: 30px;
+            height: 2px;
+            background: var(--white); /* 通常時 */
+            margin: 4px 0;
+            transition: var(--transition);
+            border-radius: 2px;
+        }
+
+        /* ✕ボタンへのアニメーション (nav-open時) */
+        body.nav-open .nav-toggle span { background: var(--primary); } /* 開いた時はエメラルドに */
+        body.nav-open .nav-toggle span:nth-child(1) { transform: translateY(10px) rotate(45deg); }
+        body.nav-open .nav-toggle span:nth-child(2) { opacity: 0; transform: translateX(20px); }
+        body.nav-open .nav-toggle span:nth-child(3) { transform: translateY(-10px) rotate(-45deg); }
+
+        /* --- Full Screen Overlay Menu --- */
+        .nav-overlay {
+            position: fixed;
+            top: 0; right: -100%;
+            width: 100%; height: 100vh;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(15px);
+            z-index: 1500;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: var(--transition);
+            visibility: hidden;
+        }
+        body.nav-open .nav-overlay {
+            right: 0;
+            visibility: visible;
+        }
+
+        .nav-links {
+            list-style: none;
+            text-align: center;
+        }
+        .nav-links li {
+            margin: 25px 0;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        body.nav-open .nav-links li {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* リンクのディレイ表示 */
+        body.nav-open .nav-links li:nth-child(1) { transition-delay: 0.2s; }
+        body.nav-open .nav-links li:nth-child(2) { transition-delay: 0.3s; }
+        body.nav-open .nav-links li:nth-child(3) { transition-delay: 0.4s; }
+        body.nav-open .nav-links li:nth-child(4) { transition-delay: 0.5s; }
+
+        .nav-links a {
+            text-decoration: none;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--primary);
+            font-family: 'Montserrat', sans-serif;
+            position: relative;
+            letter-spacing: 2px;
+        }
+        
+        /* リンクホバー時の下線 */
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -8px; left: 50%;
+            width: 0; height: 2px;
+            background: var(--primary);
+            transition: var(--transition);
+            transform: translateX(-50%);
+        }
+        .nav-links a:hover::after { width: 80%; }
+
+        
+
+.hero {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+
+  background:
+    radial-gradient(circle at 80% 40%, rgba(255,255,255,0.3), transparent 50%),
+    linear-gradient(135deg,#0d8f89,#3aa6a0);
+  overflow: hidden;
+}
+
+
+/* ノイズ感 */
+
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background-image:
+  url("https://grainy-gradients.vercel.app/noise.svg");
+  opacity:0.25;
+}
+
+
+/* 下の曲線 */
+
+.hero::after{
+  content:"";
+  position:absolute;
+  bottom:-1px;
+  left:0;
+  width:100%;
+  height:60px;
+  background:white;
+  clip-path: ellipse(120% 100% at 50% 100%);
+}
+
+
+
+/* コンテンツ */
+
+.hero-inner{
+  position:relative;
+  z-index:2;
+}
+
+
+
+/* ロゴ */
+
+.hero-logo{
+  width:160px;
+  margin-bottom:25px;
+}
+
+
+/* メインコピー */
+
+.hero h1{
+  font-size:42px;
+  font-weight:600;
+  margin-bottom:20px;
+}
+
+/* サブコピー */
+
+.hero-sub{
+  font-size:18px;
+  opacity:0.9;
+  margin-bottom:35px;
+}
+
+/* ボタン */
+
+.hero-btn{
+  display:inline-block;
+  background:#1c6f6a;
+  padding:14px 36px;
+  border-radius:40px;
+  color:white;
+  text-decoration:none;
+  font-size:16px;
+  transition:0.3s;
+}
+
+.hero-btn:hover{
+  background:#145e5a;
+}
+
+        /* --- Hero Section --- 
+        .hero {
+            height: 100vh;
+            background: var(--grad);
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 50px;
+            clip-path: ellipse(150% 100% at 50% 0%);
+        }
+        .hero-inner {
+            max-width: 1100px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+        }
+        .hero-text h1 { font-size: 3.5rem; line-height: 1.2; margin-bottom: 20px; font-weight: 700; }
+        .hero-text p { font-size: 1.2rem; opacity: 0.9; margin-bottom: 35px; }
+
+        .hero-img img { 
+            max-width: 500px; 
+            width: 100%;
+            border-radius: 20px; 
+            box-shadow: 20px 20px 0 rgba(255,255,255,0.1);
+        }*/
+
+        .btn-main {
+            display: inline-block;
+            padding: 18px 45px;
+            background: var(--accent);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        .btn-main:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(0,0,0,0.3); }
+
+        @media (max-width: 768px) {
+            header { padding: 20px 30px; }
+            /*.hero-inner { flex-direction: column; text-align: center; }
+            .hero-text h1 { font-size: 2.2rem; }
+            .hero-text p { font-size: 1rem; }
+            .nav-links a { font-size: 1.8rem; }*/
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="#" class="logo">NAKAMOTO's</a>
+        
+        <button class="nav-toggle" id="navToggle" aria-label="Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </header>
+
+    <nav class="nav-overlay" id="navOverlay">
+        <ul class="nav-links">
+            <li><a href="#about">About us</a></li>
+            <li><a href="#service">Service</a></li>
+            <li><a href="#strength">Strength</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li style="margin-top: 50px;">
+                <a href="#" class="btn-main" style="font-size: 1rem; color: white;">無料相談はこちら</a>
+            </li>
+        </ul>
+    </nav>
+
+    <main>
+        <section class="hero">
+        <div class="hero-inner">
+            <img src="logo.png" class="hero-logo" alt="NAKAMOTO's">
+            <h1>今ある価値を、正しく届ける。</h1>
+            <p class="hero-sub">
+            一瞬、いっときの魅力ではなく、納得して選ばれる体験を<br>
+            ECで実現します。
+            </p>
+            <a href="#" class="hero-btn">無料相談はこちら</a>
+        </div>
+        </section>
+        <!--<section class="hero" id="about">
+            <div class="hero-inner">
+                <div class="hero-text">
+                    <p style="letter-spacing: 5px; font-weight: 700; margin-bottom: 15px; color: rgba(255,255,255,0.8);">NAKAMOTO'S</p>
+                    <h1>今ある価値を、<br>正しく届ける。</h1>
+                    <p>一時の魅力ではなく、納得して選ばれる体験を<br>EC制作・運用サポートで実現します。</p>
+                    <a href="#contact" class="btn-main">無料相談はこちら</a>
+                </div>
+                <div class="hero-img">
+                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" alt="Partner Session">
+                </div>
+            </div>
+        </section>-->
+    </main>
+
+    <script>
+        const navToggle = document.getElementById('navToggle');
+        const body = document.body;
+        const navLinks = document.querySelectorAll('.nav-links a');
+
+        // メニューの開閉（アイコンを×に変化させつつオーバーレイを表示）
+        navToggle.addEventListener('click', () => {
+            body.classList.toggle('nav-open');
+        });
+
+        // リンクをクリックしたら、メニューを閉じてページ内移動
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                // 通常のアンカーリンク挙動は維持しつつ、メニューを閉じる
+                body.classList.remove('nav-open');
+            });
+        });
+
+        // ロゴをクリックした時（TOPに戻る）もメニューが開いていれば閉じる
+        document.querySelector('.logo').addEventListener('click', () => {
+            body.classList.remove('nav-open');
+        });
+    </script>
+</body>
+</html>
