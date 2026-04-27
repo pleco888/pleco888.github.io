@@ -36,7 +36,7 @@
 
 /* ── RESET ── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; font-size: 16px; }
+html { scroll-behavior: smooth; font-size: 18px; }
 body {
   background: var(--cream);
   color: var(--text);
@@ -215,8 +215,8 @@ body::after {
 ════════════════════════════════ */
 .hero {
   min-height: 100vh;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  /* display: grid;
+  grid-template-columns: 1fr 1fr; */
   align-items: center;
   padding: 120px 80px 80px 80px;
   position: relative;
@@ -286,7 +286,7 @@ body::after {
 
 .hero-h1 {
   font-family: var(--font-serif);
-  font-size: clamp(2.2rem, 4.5vw, 3.8rem);
+  font-size: clamp(3rem, 3vw, 4rem);
   font-weight: 900;
   line-height: 1.35;
   color: var(--text);
@@ -315,7 +315,7 @@ body::after {
   font-size: 1rem;
   color: var(--text-mid);
   line-height: 2.2;
-  max-width: 460px;
+  max-width: 800px;
   margin-bottom: 48px;
   animation: fadeSlideUp 1s var(--ease-out) 0.35s both;
 }
@@ -333,9 +333,9 @@ body::after {
   gap: 10px;
   background: var(--text);
   color: var(--cream);
-  padding: 16px 36px;
+  padding: 27px 60px;
   border-radius: 50px;
-  font-size: 0.88rem;
+  font-size: 1.3rem;
   letter-spacing: 0.08em;
   font-family: var(--font-body);
   transition: background 0.3s, transform 0.25s var(--ease-out), box-shadow 0.3s;
@@ -355,9 +355,9 @@ body::after {
   gap: 8px;
   border: 1.5px solid var(--sage);
   color: var(--brown);
-  padding: 15px 30px;
+  padding: 27px 60px;
   border-radius: 50px;
-  font-size: 0.88rem;
+  font-size: 1.3rem;
   letter-spacing: 0.08em;
   font-family: var(--font-body);
   transition: background 0.3s, transform 0.25s var(--ease-out);
@@ -373,7 +373,7 @@ body::after {
   justify-content: center;
   animation: fadeSlideUp 1.1s var(--ease-out) 0.3s both;
 }
-
+/*
 .card-cluster {
   position: relative;
   width: 380px;
@@ -409,7 +409,7 @@ body::after {
   bottom: 80px; right: 10px;
   width: 150px;
   animation: cardFloat2 9s ease-in-out infinite 0.4s;
-}
+}*/
 
 @keyframes cardFloat1 {
   0%, 100% { transform: translateY(0px) rotate(-1deg); }
@@ -520,7 +520,7 @@ body::after {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  font-size: 0.68rem;
+  font-size: 0.9rem;
   letter-spacing: 0.2em;
   color: var(--text-soft);
   text-transform: uppercase;
@@ -535,7 +535,7 @@ body::after {
 
 .section-title {
   font-family: var(--font-serif);
-  font-size: clamp(1.7rem, 3vw, 2.6rem);
+  font-size: clamp(2rem,3vw, 3rem);
   font-weight: 900;
   color: var(--text);
   line-height: 1.45;
@@ -587,7 +587,7 @@ body::after {
   background: var(--rose-pale);
   border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   margin-bottom: 20px;
   position: relative; z-index: 1;
 }
@@ -614,7 +614,7 @@ body::after {
   position: relative; z-index: 1;
 }
 .pain-card p {
-  font-size: 0.82rem;
+  font-size: 1rem;
   color: var(--text-soft);
   line-height: 1.9;
   position: relative; z-index: 1;
@@ -680,17 +680,17 @@ body::after {
 .sol-float-tag {
   position: absolute;
   background: var(--white);
-  border-radius: 50px;
-  padding: 10px 20px;
-  font-size: 0.75rem;
+  border-radius: 136px;
+  padding: 100px 50px;
+  font-size: 1rem;
   color: var(--text-mid);
   box-shadow: 0 6px 28px rgba(122,99,85,0.12);
   white-space: nowrap;
   border: 1px solid rgba(201,168,154,0.15);
 }
-.sol-float-tag.t1 { top: 18px; right: -24px; animation: tagFloat 4s ease-in-out infinite; }
-.sol-float-tag.t2 { bottom: 60px; left: -32px; animation: tagFloat 5s ease-in-out infinite 0.7s; }
-.sol-float-tag.t3 { bottom: 18px; right: 0; animation: tagFloat 6s ease-in-out infinite 1.4s; }
+.sol-float-tag.t1 { top: -47px; right: -106px; animation: tagFloat 4s ease-in-out infinite; }
+.sol-float-tag.t2 { bottom: 60px; left: -163px; animation: tagFloat 5s ease-in-out infinite 0.7s; }
+.sol-float-tag.t3 { bottom: -157px; right: -83px; animation: tagFloat 6s ease-in-out infinite 1.4s; }
 @keyframes tagFloat {
   0%, 100% { transform: translateY(0); }
   50%  { transform: translateY(-8px); }
@@ -706,7 +706,7 @@ body::after {
 .td-gold { background: var(--gold); }
 
 .sol-copy {
-  font-size: 1.05rem;
+  font-size: 1rem;
   color: var(--text-mid);
   line-height: 2.4;
   margin-bottom: 36px;
@@ -739,13 +739,13 @@ body::after {
 }
 .sol-point-text h4 {
   font-family: var(--font-serif);
-  font-size: 0.9rem;
+  font-size: 1.2rem;
   font-weight: 700;
   color: var(--text);
   margin-bottom: 3px;
 }
 .sol-point-text p {
-  font-size: 0.78rem;
+  font-size: 1rem;
   color: var(--text-mid);
   line-height: 1.8;
 }
@@ -810,7 +810,7 @@ body::after {
 }
 
 .bento-num {
-  font-size: 0.68rem;
+  font-size: 1rem;
   letter-spacing: 0.2em;
   color: var(--text-soft);
   text-transform: uppercase;
@@ -820,7 +820,7 @@ body::after {
 
 .bento-card h3 {
   font-family: var(--font-serif);
-  font-size: 1.4rem;
+  font-size: 2rem;
   font-weight: 900;
   color: var(--text);
   line-height: 1.4;
@@ -829,16 +829,15 @@ body::after {
 .bento-card-dark h3 { font-size: 1.8rem; color: var(--cream); }
 
 .bento-card p {
-  font-size: 0.82rem;
+  font-size: 1rem;
   color: var(--text-mid);
   line-height: 2;
 }
-.bento-card-dark p { color: rgba(254,252,248,0.7); font-size: 0.88rem; }
+.bento-card-dark p { color: rgba(254,252,248,0.7); font-size: 1rem; }
 
 .bento-icon {
   font-size: 2.8rem;
   align-self: flex-end;
-  margin-top: auto;
   position: relative; z-index: 1;
 }
 
@@ -875,7 +874,7 @@ body::after {
 .comparison-table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 0.82rem;
+  font-size: 1rem;
   min-width: 640px;
 }
 
@@ -883,12 +882,10 @@ body::after {
 .comparison-table td {
   padding: 18px 20px;
   text-align: left;
+  color: var(--text-mid);
 }
 
 .comparison-table thead th {
-  font-family: var(--font-serif);
-  font-weight: 700;
-  color: var(--text);
   background: var(--cream-3);
   border-bottom: 1px solid rgba(201,168,154,0.2);
 }
@@ -900,22 +897,9 @@ body::after {
 /* 自社カラム強調（やりすぎない） */
 .comparison-table .is-us {
   background: var(--sage-ultra);
-  font-weight: 600;
-  color: var(--text);
+  font-weight: 800;
 }
 
-/* 行ホバー */
-.comparison-table tbody tr:hover td {
-  background: var(--rose-ultra);
-}
-
-/* フッターメッセージ */
-.comparison-footnote {
-  font-size: 0.72rem;
-  color: var(--text-soft);
-  margin-top: 16px;
-  line-height: 1.8;
-}
 
 /* ════════════════════════════════
    MESSAGE SECTION
@@ -930,7 +914,7 @@ body::after {
 .message::before {
   content: '';
   position: absolute;
-  width: 700px; height: 700px;
+  width: 800px; height: 800px;
   border-radius: 50%;
   background: radial-gradient(circle, var(--rose-pale) 0%, transparent 70%);
   top: 50%; left: 50%;
@@ -955,11 +939,11 @@ body::after {
 
 .msg-quote {
   font-family: var(--font-serif);
-  font-size: clamp(1.5rem, 3.2vw, 2.4rem);
+  font-size: clamp(3rem, 5vw, 3rem);
   font-weight: 900;
   color: var(--text);
   line-height: 1.8;
-  max-width: 700px;
+  max-width: 800px;
   margin: 0 auto 32px;
   position: relative; z-index: 1;
 }
@@ -996,12 +980,12 @@ body::after {
 .sig-text { text-align: left; }
 .sig-text strong {
   display: block;
-  font-size: 0.82rem;
+  font-size: 1rem;
   font-family: var(--font-serif);
   font-weight: 700;
   color: var(--text);
 }
-.sig-text span { font-size: 0.72rem; color: var(--text-soft); }
+.sig-text span { font-size: 1rem; color: var(--text-soft); }
 
 /* ════════════════════════════════
    PROCESS
@@ -1051,13 +1035,13 @@ body::after {
 }
 .proc-num .n {
   font-family: var(--font-serif);
-  font-size: 1.4rem;
+  font-size: 2rem;
   font-weight: 900;
   color: var(--text);
   line-height: 1;
 }
 .proc-num .step-word {
-  font-size: 0.55rem;
+  font-size: 0.9rem;
   letter-spacing: 0.15em;
   color: var(--text-soft);
   text-transform: uppercase;
@@ -1065,14 +1049,14 @@ body::after {
 
 .proc-step h4 {
   font-family: var(--font-serif);
-  font-size: 1rem;
+  font-size: 1.3rem;
   font-weight: 700;
   color: var(--text);
   margin-bottom: 10px;
   line-height: 1.5;
 }
 .proc-step p {
-  font-size: 0.78rem;
+  font-size: 1rem;
   color: var(--text-soft);
   line-height: 1.9;
 }
@@ -1106,7 +1090,7 @@ body::after {
 
 .cta-tag {
   display: inline-block;
-  font-size: 0.68rem;
+  font-size: 1rem;
   letter-spacing: 0.22em;
   color: rgba(154,171,150,0.8);
   text-transform: uppercase;
@@ -1116,11 +1100,11 @@ body::after {
 
 .cta-title {
   font-family: var(--font-serif);
-  font-size: clamp(2rem, 4.5vw, 3.4rem);
+  font-size: clamp(2rem, 4vw, 4rem);
   font-weight: 900;
   color: var(--cream);
   line-height: 1.4;
-  max-width: 600px;
+  max-width: 800px;
   margin: 0 auto 24px;
   position: relative; z-index: 1;
 }
@@ -1148,9 +1132,9 @@ body::after {
   gap: 10px;
   background: var(--rose);
   color: var(--white);
-  padding: 20px 48px;
+  padding: 27px 60px;
   border-radius: 50px;
-  font-size: 0.92rem;
+  font-size: 1.3rem;
   letter-spacing: 0.08em;
   font-family: var(--font-body);
   transition: background 0.3s, transform 0.25s var(--ease-out), box-shadow 0.3s;
@@ -1169,9 +1153,9 @@ body::after {
   gap: 8px;
   border: 1.5px solid rgba(154,171,150,0.4);
   color: rgba(254,252,248,0.8);
-  padding: 19px 36px;
+  padding: 27px 60px;
   border-radius: 50px;
-  font-size: 0.92rem;
+  font-size: 1.3rem;
   font-family: var(--font-body);
   transition: border-color 0.3s, color 0.3s, transform 0.25s;
 }
@@ -1182,7 +1166,7 @@ body::after {
 }
 
 .cta-note {
-  font-size: 0.72rem;
+  font-size: 1rem;
   color: rgba(254,252,248,0.35);
   margin-top: 24px;
   letter-spacing: 0.08em;
@@ -1262,7 +1246,7 @@ footer {
   .sol-visual { display: none; }
   .bento { grid-template-columns: 1fr; grid-template-rows: auto; }
   .bento-card-dark { grid-row: auto; }
-  .bento-card-cream, .bento-card-rose { margin-top: 0; }
+  .bento-card-cream, .bento-card-rose { grid-row: auto; margin-top: 0; }
   .process-steps { grid-template-columns: 1fr 1fr; }
   .process-steps::before { display: none; }
   .cta-section, .message { padding: 80px 28px; }
@@ -1307,17 +1291,6 @@ footer {
   <div class="hero-orb hero-orb-3"></div>
 
   <div class="hero-left">
-    <div class="hero-eyebrow">
-      <div class="eyebrow-dot">
-        <svg viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M2 5l2.5 2.5L8 2.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </div>
-      <span>モノづくりが好きな個人のために</span>
-    </div>
-個は弱くない、設計されていないだけ。
-一粒でも、ぎゅっと詰まれば一房になる。
-
     <h1 class="hero-h1">
       「個人で働く」を、<br>
       もっと<em>楽しく</em>、<br>
@@ -1344,7 +1317,7 @@ footer {
   </div>
 
   <!-- Floating cards -->
-  <div class="hero-right">
+  <!-- <div class="hero-right">
     <div class="card-cluster">
       <div class="h-card h-card-1">
         <div class="h-card-icon ic-sage">🌿</div>
@@ -1363,10 +1336,10 @@ footer {
       <div class="h-card h-card-4">
         <div class="h-card-icon ic-cream">❤️</div>
         <p style="font-size:0.78rem;color:var(--text-mid)">顧客満足度</p>
-        <span class="h-card-stat" style="font-size:1.4rem">98%</span>
+        <span class="h-card-stat" style="font-size:1.3rem">98%</span>
       </div>
     </div>
-  </div>
+  </div> -->
 
   <div class="scroll-hint">
     <div class="scroll-line"></div>
@@ -1484,34 +1457,6 @@ footer {
   </div>
 </section>
 
-
-<!-- ════════ PAIN POINTS ════════ -->
-<section class="section pain" id="pain">
-  <div class="section-inner">
-
-    <div class="pain-grid">
-      <div class="pain-card reveal reveal-delay-1">
-        <div class="pain-badge">よくある</div>
-        <div class="pain-icon">🛒</div>
-        <h3>商品は作れるけど<br>なかなか売れない</h3>
-        <p>クオリティには自信があるのに、なぜか数字が伸びない。何が足りないのかわからない。</p>
-      </div>
-      <div class="pain-card reveal reveal-delay-2">
-        <div class="pain-badge">深刻</div>
-        <div class="pain-icon">📦</div>
-        <h3>EC販売しているが<br>売れる気配がない</h3>
-        <p>出品はしているのに閑古鳥。どう改善すれば変わるのか、少しはわかるけど先延ばしにしてしまっている。</p>
-      </div>
-      <div class="pain-card reveal reveal-delay-3">
-        <div class="pain-badge">あるある</div>
-        <div class="pain-icon">❤️</div>
-        <h3>いいねは増えるのに<br>購買につながらない</h3>
-        <p>SNSでは反応があるのに、実際の購入者が全然増えない。ファンと顧客の間に壁がある。</p>
-      </div>
-      </div>
-  </div>
-</section>
-
 <!-- ════════ FEATURES ════════ -->
 <section class="section features" id="features">
   <div class="section-inner">
@@ -1525,8 +1470,8 @@ footer {
       <div class="bento-card bento-card-dark reveal">
         <div class="bento-icon">🌱</div>
           <p class="bento-num">01 — Signature</p>
-          <h3>感情型マーケティング<br>で「ファン」を育てる</h3>
-          <p>数字だけを追うマーケティングではなく、<br>あなたの物語に共感した「本当のファン」が<br>自然に集まる仕組みをつくります。</p>
+          <h3>あなたらしく売れる<br>を育てる</h3>
+          <p>あなたらしさを整理してイメージ化し、仕組みをつくります。</p>
         </div>
       
 
@@ -1557,10 +1502,10 @@ footer {
 <section class="section comparison-section">
   <div class="section-inner">
     
-    <div class="reveal" style="text-align:center">
+    <div class="reveal">
       <span class="section-tag">Comparison</span>
-      <h2 class="section-title">他者との違い</h2>
-      <p class="section-lead" style="margin:0 auto">
+      <h2 class="section-title">他社との違い</h2>
+      <p class="section-lead">
         「なんとなく良さそう」ではなく、<br>
         選ばれる理由を、きちんと見える形にしました。
       </p>
@@ -1611,10 +1556,6 @@ footer {
           </tbody>
         </table>
       </div>
-
-      <p class="comparison-footnote">
-        ※ どれが正解かではなく、「あなたに合うかどうか」が大切です。
-      </p>
     </div>
 
   </div>
