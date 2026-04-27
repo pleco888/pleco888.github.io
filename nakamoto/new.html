@@ -852,6 +852,71 @@ body::after {
   box-shadow: 0 2px 10px rgba(122,99,85,0.08);
 }
 
+
+/* ════════════════════════════════
+   COMPARISON SECTION
+════════════════════════════════ */
+.comparison-section {
+  background: var(--cream);
+}
+
+.comparison {
+  margin-top: 56px;
+}
+
+.comparison-table-wrap {
+  overflow-x: auto;
+  border-radius: 24px;
+  background: var(--white);
+  border: 1px solid rgba(201,168,154,0.14);
+  box-shadow: 0 10px 40px rgba(122,99,85,0.08);
+}
+
+.comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.82rem;
+  min-width: 640px;
+}
+
+.comparison-table th,
+.comparison-table td {
+  padding: 18px 20px;
+  text-align: left;
+}
+
+.comparison-table thead th {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  color: var(--text);
+  background: var(--cream-3);
+  border-bottom: 1px solid rgba(201,168,154,0.2);
+}
+
+.comparison-table tbody tr:not(:last-child) td {
+  border-bottom: 1px solid rgba(201,168,154,0.12);
+}
+
+/* 自社カラム強調（やりすぎない） */
+.comparison-table .is-us {
+  background: var(--sage-ultra);
+  font-weight: 600;
+  color: var(--text);
+}
+
+/* 行ホバー */
+.comparison-table tbody tr:hover td {
+  background: var(--rose-ultra);
+}
+
+/* フッターメッセージ */
+.comparison-footnote {
+  font-size: 0.72rem;
+  color: var(--text-soft);
+  margin-top: 16px;
+  line-height: 1.8;
+}
+
 /* ════════════════════════════════
    MESSAGE SECTION
 ════════════════════════════════ */
@@ -1197,7 +1262,7 @@ footer {
   .sol-visual { display: none; }
   .bento { grid-template-columns: 1fr; grid-template-rows: auto; }
   .bento-card-dark { grid-row: auto; }
-  .bento-card-rose, .bento-card-gold { margin-top: 0; }
+  .bento-card-cream, .bento-card-rose { margin-top: 0; }
   .process-steps { grid-template-columns: 1fr 1fr; }
   .process-steps::before { display: none; }
   .cta-section, .message { padding: 80px 28px; }
@@ -1229,7 +1294,7 @@ footer {
       <li><a href="#contact"><span class="menu-num">05</span>お問い合わせ</a></li>
     </ul>
     <div class="nav-overlay-foot">
-      <span>© 2025 Monoco.</span>
+      <span>© 2026 NAKAMOTO's</span>
       <a href="#contact" class="nav-cta-overlay" onclick="closeMenu()">無料相談する</a>
     </div>
   </nav>
@@ -1423,15 +1488,6 @@ footer {
 <!-- ════════ PAIN POINTS ════════ -->
 <section class="section pain" id="pain">
   <div class="section-inner">
-    
-    <!--<div class="reveal">
-      <span class="section-tag">Pain Points</span>
-      <h2 class="section-title">こんなお悩み、ありませんか？</h2>
-      <p class="section-lead">
-        一生懸命つくっているのに、なぜか届かない。<br>
-        その悩みには、必ず理由があります。
-      </p>
-    </div>-->
 
     <div class="pain-grid">
       <div class="pain-card reveal reveal-delay-1">
@@ -1467,13 +1523,12 @@ footer {
     <div class="bento">
       <!-- Large dark card -->
       <div class="bento-card bento-card-dark reveal">
-        <div>
+        <div class="bento-icon">🌱</div>
           <p class="bento-num">01 — Signature</p>
           <h3>感情型マーケティング<br>で「ファン」を育てる</h3>
           <p>数字だけを追うマーケティングではなく、<br>あなたの物語に共感した「本当のファン」が<br>自然に集まる仕組みをつくります。</p>
         </div>
-        <div class="bento-icon">🌱</div>
-      </div>
+      
 
       <!-- Cream card -->
       <div class="bento-card bento-card-cream reveal reveal-delay-1">
@@ -1491,22 +1546,80 @@ footer {
         <p>売上よりも先に、あなたらしさを守ること。それが私たちの絶対的な約束です。</p>
       </div>
 
-      
-
-      <!-- Gold card -->
-      <!--<div class="bento-card bento-card-gold reveal reveal-delay-2">
-        <div style="display:flex;gap:12px;align-items:center;margin-bottom:12px">
-          <span style="font-size:1.8rem">💬</span>
-          <div>
-            <span style="font-family:var(--font-serif);font-size:1.8rem;font-weight:900;color:var(--text)">85%</span>
-            <p style="font-size:0.7rem;color:var(--text-soft)">継続率・満足度</p>
-          </div>
-        </div>
-        <p style="font-size:0.78rem;color:var(--text-soft);line-height:1.9">「また相談したい」と思っていただける伴走を目指しています</p>
-      </div>-->
+    
     </div>
   </div>
 </section>
+
+
+
+<!-- ════════ COMPARISON ════════ -->
+<section class="section comparison-section">
+  <div class="section-inner">
+    
+    <div class="reveal" style="text-align:center">
+      <span class="section-tag">Comparison</span>
+      <h2 class="section-title">他者との違い</h2>
+      <p class="section-lead" style="margin:0 auto">
+        「なんとなく良さそう」ではなく、<br>
+        選ばれる理由を、きちんと見える形にしました。
+      </p>
+    </div>
+
+    <div class="comparison reveal reveal-delay-2">
+      <div class="comparison-table-wrap">
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th></th>
+              <th class="is-us">NAKAMOTO's</th>
+              <th>一般的なコンサル</th>
+              <th>制作会社</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>アプローチ</td>
+              <td class="is-us">感情 × 導線設計</td>
+              <td>数値・ロジック中心</td>
+              <td>デザイン中心</td>
+            </tr>
+            <tr>
+              <td>関わり方</td>
+              <td class="is-us">二人三脚で伴走</td>
+              <td>アドバイス主体</td>
+              <td>制作後は基本終了</td>
+            </tr>
+            <tr>
+              <td>世界観の扱い</td>
+              <td class="is-us">守りながら伸ばす</td>
+              <td>優先度が下がりがち</td>
+              <td>見た目として表現</td>
+            </tr>
+            <tr>
+              <td>売上への設計</td>
+              <td class="is-us">ファン→購買の導線設計</td>
+              <td>広告・改善施策中心</td>
+              <td>設計はクライアント依存</td>
+            </tr>
+            <tr>
+              <td>対象</td>
+              <td class="is-us">個人・作家に特化</td>
+              <td>幅広い業種</td>
+              <td>幅広い業種</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="comparison-footnote">
+        ※ どれが正解かではなく、「あなたに合うかどうか」が大切です。
+      </p>
+    </div>
+
+  </div>
+</section>
+
 
 <!-- ════════ MESSAGE ════════ -->
 <section class="message">
@@ -1528,7 +1641,7 @@ footer {
     <div class="msg-signature">
       <div class="sig-avatar"></div>
       <div class="sig-text">
-        <strong>Monoco チーム一同</strong>
+        <strong>NAKAMOTO's チーム一同</strong>
         <span>ものづくり支援専門</span>
       </div>
     </div>
@@ -1589,13 +1702,13 @@ footer {
   <h2 class="cta-title reveal">まず、話してみませんか。</h2>
   <p class="cta-sub reveal">料金は一切かかりません。あなたのお店の現状と<br>可能性を、一緒に整理するところから始めます。</p>
   <div class="cta-buttons reveal">
-    <a href="mailto:hello@monoco.jp" class="btn-cta-main">
+    <a href="mailto:hello@nakamoto'sjp" class="btn-cta-main">
       無料相談を申し込む
       <svg viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
     </a>
-    <a href="mailto:hello@monoco.jp" class="btn-cta-sub">お問い合わせフォーム</a>
+    <a href="mailto:hello@nakamoto'sjp" class="btn-cta-sub">お問い合わせフォーム</a>
   </div>
   <p class="cta-note reveal">※ 返信は3営業日以内にお送りします</p>
 </section>
@@ -1603,7 +1716,7 @@ footer {
 <!-- ════════ FOOTER ════════ -->
 <footer>
   <div>
-    <span class="foot-logo">Monoco.</span>
+    <span class="foot-logo">NAKAMOTO's</span>
     <p class="foot-tagline">ものづくりが好きな個人の<br>「売れる仕組み」を一緒につくります。</p>
   </div>
   <div class="foot-links">
@@ -1621,7 +1734,7 @@ footer {
     <a href="#">Twitter / X</a>
   </div>
   <div class="foot-bottom">
-    <span>© 2025 Monoco. All rights reserved.</span>
+    <span>© 2026 NAKAMOTO's All rights reserved.</span>
     <span>プライバシーポリシー　特定商取引法に基づく表記</span>
   </div>
 </footer>
