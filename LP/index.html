@@ -579,7 +579,7 @@ body::after {
   border-radius: inherit;
 }
 .pain-card:hover { transform: translateY(-8px); box-shadow: 0 20px 60px rgba(122,99,85,0.13); }
-.pain-card:hover::before { opacity: 1; }
+/* .pain-card:hover::before { opacity: 1; } */
 .pain-card:nth-child(even) { margin-top: 28px; }
 
 .pain-icon {
@@ -592,7 +592,7 @@ body::after {
   position: relative; z-index: 1;
 }
 
-.pain-badge {
+/*.pain-badge {
   position: absolute;
   top: 22px; right: 22px;
   font-size: 0.65rem;
@@ -602,7 +602,7 @@ body::after {
   border-radius: 50px;
   border: 1px solid var(--rose-mid);
   letter-spacing: 0.08em;
-}
+}*/
 
 .pain-card h3 {
   font-family: var(--font-serif);
@@ -731,8 +731,8 @@ body::after {
 .sol-point:hover { background: var(--sage-pale); transform: translateX(4px); }
 .sol-point-icon {
   width: 36px; height: 36px;
-  background: var(--white);
-  border-radius: 50%;
+  /*background: var(--white);
+  border-radius: 50%;*/
   display: flex; align-items: center; justify-content: center;
   font-size: 1rem;
   flex-shrink: 0;
@@ -961,7 +961,7 @@ body::after {
   position: relative; z-index: 1;
 }
 
-.msg-signature {
+/* .msg-signature {
   display: inline-flex;
   align-items: center;
   gap: 14px;
@@ -985,7 +985,8 @@ body::after {
   font-weight: 700;
   color: var(--text);
 }
-.sig-text span { font-size: 1rem; color: var(--text-soft); }
+.sig-text span { font-size: 1rem; color: var(--text-soft); }*/
+
 
 /* ════════════════════════════════
    PROCESS
@@ -1261,7 +1262,7 @@ footer {
 
 <!-- ════════ NAVIGATION ════════ -->
 <header class="nav" id="nav">
-  <a href="#" class="nav-logo">NAKAMOTO's</a>
+  <a href="#" class="nav-logo">MOTOMOTO</a>
 
   <button class="ham-btn" id="hamBtn" aria-label="メニューを開く" aria-expanded="false">
     <span class="ham-line"></span>
@@ -1278,7 +1279,7 @@ footer {
       <li><a href="#contact"><span class="menu-num">05</span>お問い合わせ</a></li>
     </ul>
     <div class="nav-overlay-foot">
-      <span>© 2026 NAKAMOTO's</span>
+      <span>© 2026 MOTOMOTO</span>
       <a href="#contact" class="nav-cta-overlay" onclick="closeMenu()">無料相談する</a>
     </div>
   </nav>
@@ -1361,19 +1362,16 @@ footer {
 
     <div class="pain-grid">
       <div class="pain-card reveal reveal-delay-1">
-        <div class="pain-badge">よくある</div>
         <div class="pain-icon">🛒</div>
         <h3>商品は作れるけど<br>なかなか売れない</h3>
         <p>クオリティには自信があるのに、なぜか数字が伸びない。何が足りないのかわからない。</p>
       </div>
       <div class="pain-card reveal reveal-delay-2">
-        <div class="pain-badge">深刻</div>
         <div class="pain-icon">📦</div>
         <h3>EC販売しているが<br>売れる気配がない</h3>
         <p>出品はしているのに閑古鳥。どう改善すれば変わるのか、少しはわかるけど先延ばしにしてしまっている。</p>
       </div>
       <div class="pain-card reveal reveal-delay-3">
-        <div class="pain-badge">あるある</div>
         <div class="pain-icon">❤️</div>
         <h3>いいねは増えるのに<br>購買につながらない</h3>
         <p>SNSでは反応があるのに、実際の購入者が全然増えない。ファンと顧客の間に壁がある。</p>
@@ -1517,7 +1515,7 @@ footer {
           <thead>
             <tr>
               <th></th>
-              <th class="is-us">NAKAMOTO's</th>
+              <th class="is-us">MOTOMOTO</th>
               <th>一般的なコンサル</th>
               <th>制作会社</th>
             </tr>
@@ -1579,13 +1577,13 @@ footer {
       オーナー様の想いに一番近い場所で、<br>
       長く愛されるお店を共につくります。
     </p>
-    <div class="msg-signature">
+    <!-- <div class="msg-signature">
       <div class="sig-avatar"></div>
       <div class="sig-text">
-        <strong>NAKAMOTO's チーム一同</strong>
+        <strong>MOTOMOTO 一同</strong>
         <span>ものづくり支援専門</span>
       </div>
-    </div>
+    </div>-->
   </div>
 </section>
 
@@ -1643,13 +1641,13 @@ footer {
   <h2 class="cta-title reveal">まず、話してみませんか。</h2>
   <p class="cta-sub reveal">料金は一切かかりません。あなたのお店の現状と<br>可能性を、一緒に整理するところから始めます。</p>
   <div class="cta-buttons reveal">
-    <a href="mailto:hello@nakamoto'sjp" class="btn-cta-main">
+    <a href="mailto:hello@MOTOMOTOjp" class="btn-cta-main">
       無料相談を申し込む
       <svg viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
     </a>
-    <a href="mailto:hello@nakamoto'sjp" class="btn-cta-sub">お問い合わせフォーム</a>
+    <a href="mailto:hello@MOTOMOTOjp" class="btn-cta-sub">お問い合わせフォーム</a>
   </div>
   <p class="cta-note reveal">※ 返信は3営業日以内にお送りします</p>
 </section>
@@ -1657,7 +1655,7 @@ footer {
 <!-- ════════ FOOTER ════════ -->
 <footer>
   <div>
-    <span class="foot-logo">NAKAMOTO's</span>
+    <span class="foot-logo">MOTOMOTO</span>
     <p class="foot-tagline">ものづくりが好きな個人の<br>「売れる仕組み」を一緒につくります。</p>
   </div>
   <div class="foot-links">
@@ -1671,11 +1669,9 @@ footer {
   <div class="foot-links">
     <h5>Follow</h5>
     <a href="#">Instagram</a>
-    <a href="#">note</a>
-    <a href="#">Twitter / X</a>
   </div>
   <div class="foot-bottom">
-    <span>© 2026 NAKAMOTO's All rights reserved.</span>
+    <span>© 2026 MOTOMOTO All rights reserved.</span>
     <span>プライバシーポリシー　特定商取引法に基づく表記</span>
   </div>
 </footer>
