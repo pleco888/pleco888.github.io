@@ -222,10 +222,13 @@ body::after {
   position: relative;
   overflow: hidden;
   gap: 60px;
+  background-image: url(img/1.png);
+  background-size: 150%;
+   background-color: rgba(255, 255, 255, 0.562);
 }
 
 /* Background orbs */
-.hero-orb {
+/*.hero-orb {
   position: absolute;
   border-radius: 50%;
   filter: blur(80px);
@@ -254,10 +257,14 @@ body::after {
   0%, 100% { transform: translate(0, 0); }
   33%  { transform: translate(20px, -30px); }
   66%  { transform: translate(-15px, 20px); }
-}
+}*/
 
 /* Left text */
-.hero-left { position: relative; z-index: 2; }
+.hero-left { 
+    position: relative; 
+    z-index: 2;
+    background-color: rgba(255, 255, 255, 0.562); 
+  }
 
 .hero-eyebrow {
   display: inline-flex;
@@ -1287,9 +1294,9 @@ footer {
 
 <!-- ════════ HERO ════════ -->
 <section class="hero">
-  <div class="hero-orb hero-orb-1"></div>
+  <!-- <div class="hero-orb hero-orb-1"></div>
   <div class="hero-orb hero-orb-2"></div>
-  <div class="hero-orb hero-orb-3"></div>
+  <div class="hero-orb hero-orb-3"></div>-->
 
   <div class="hero-left">
     <h1 class="hero-h1">
@@ -1668,7 +1675,7 @@ footer {
   </div>
   <div class="foot-links">
     <h5>Follow</h5>
-    <a href="#">Instagram</a>
+    <a href="https://www.instagram.com/pleco.days" target="_blank" rel="noopener noreferrer">Instagram</a>
   </div>
   <div class="foot-bottom">
     <span>© 2026 MOTOMOTO All rights reserved.</span>
