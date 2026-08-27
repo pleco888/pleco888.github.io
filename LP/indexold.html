@@ -36,11 +36,7 @@
 
 /* ── RESET ── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { 
-  scroll-behavior: smooth; 
-  font-size: 18px; 
-  scrollbar-gutter: stable;
-}
+html { scroll-behavior: smooth; font-size: 18px; }
 body {
   background: var(--cream);
   color: var(--text);
@@ -62,22 +58,12 @@ body::after {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
 }
 
-body.menu-open {
-  overflow: hidden;
-  position: fixed;
-  width: 100%;
-  left: 0;
-  right: 0;
-}
-
 /* ════════════════════════════════
    HAMBURGER NAVIGATION
 ════════════════════════════════ */
 .nav {
   position: fixed;
   top: 0; left: 0; right: 0;
-  backface-visibility: hidden;
-  transform: translateZ(0);
   z-index: 500;
   padding: 0 48px;
   height: 72px;
@@ -88,7 +74,6 @@ body.menu-open {
 }
 .nav.scrolled {
   background: rgba(254,252,248,0.92);
-  -webkit-backdrop-filter: blur(16px) saturate(1.4);
   backdrop-filter: blur(16px) saturate(1.4);
   box-shadow: 0 1px 0 rgba(154,171,150,0.18);
 }
@@ -144,25 +129,15 @@ body.menu-open {
   inset: 0;
   z-index: 400;
   background: var(--brown-dark);
-  clip-path: circle(0% at calc(100% - 50px) 36px);
-  transition:
-    clip-path 0.7s var(--ease-out),
-    visibility 0s linear 0.7s;
-  visibility: hidden;
+  clip-path: circle(0% at calc(100% - 68px) 36px);
+  transition: clip-path 0.7s var(--ease-out);
   display: flex;
   flex-direction: column;
   justify-content: center;
   padding: 0 80px;
-  will-change: clip-path;
-  backface-visibility: hidden;
-  transform: translateZ(0);
 }
 .nav.open .nav-overlay {
-   clip-path: circle(150% at calc(100% - 50px) 36px);
-  visibility: visible;
-  transition:
-    clip-path 0.7s var(--ease-out),
-    visibility 0s;
+  clip-path: circle(150% at calc(100% - 68px) 36px);
 }
 
 .nav-menu {
@@ -1603,56 +1578,35 @@ footer {
 
 <script>
 /* ── Hamburger ── */
-
 const nav = document.getElementById('nav');
 const hamBtn = document.getElementById('hamBtn');
 const navOverlay = document.getElementById('navOverlay');
-
 let menuOpen = false;
-let scrollY = 0;
 
 function openMenu() {
-
   menuOpen = true;
-
-  scrollY = window.scrollY;
-
-  document.body.classList.add('menu-open');
-  document.body.style.top = `-${scrollY}px`;
-
   nav.classList.add('open');
-
   hamBtn.setAttribute('aria-expanded', 'true');
   navOverlay.setAttribute('aria-hidden', 'false');
+  document.body.style.overflow = 'hidden';
 }
 
 function closeMenu() {
-
   menuOpen = false;
-
   nav.classList.remove('open');
-
   hamBtn.setAttribute('aria-expanded', 'false');
   navOverlay.setAttribute('aria-hidden', 'true');
-
-  document.body.classList.remove('menu-open');
-  document.body.style.top = '';
-
-  window.scrollTo(0, scrollY);
+  document.body.style.overflow = '';
 }
 
-hamBtn.addEventListener('click', () => {
-  menuOpen ? closeMenu() : openMenu();
-});
+hamBtn.addEventListener('click', () => menuOpen ? closeMenu() : openMenu());
 
-navOverlay.querySelectorAll('a').forEach(link => {
-  link.addEventListener('click', closeMenu);
+navOverlay.querySelectorAll('a').forEach(a => {
+  a.addEventListener('click', closeMenu);
 });
 
 document.addEventListener('keydown', e => {
-  if (e.key === 'Escape' && menuOpen) {
-    closeMenu();
-  }
+  if (e.key === 'Escape' && menuOpen) closeMenu();
 });
 
 /* ── Scroll: nav bg ── */
